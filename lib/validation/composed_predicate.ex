@@ -12,9 +12,10 @@ defmodule Validation.ComposedPredicate do
   alias Validation.Validator
 
   @doc """
-  Build a composed predicate by supplying the underlaying predicates and a compiler function that composes them.
-  The compiler takes a list of predicates as input and returns a function that accepts a value and returns either :ok or
-  {:error, message}
+  Build a composed predicate by supplying the underlaying predicates
+  and a compiler function that composes them.
+  The compiler takes a list of predicates as input and returns a function
+  that accepts a value and returns either :ok or {:error, message}
   """
   def build(predicates, compiler, meta \\ []) do
     %__MODULE__{

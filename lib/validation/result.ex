@@ -9,6 +9,8 @@ defmodule Validation.Result do
   ]
 
   def put_error(%__MODULE__{} = result, key, message) do
-    %{result | errors: Map.update(result.errors, key, [message], fn messages -> [message | messages] end)}
+    errors = Map.update(result.errors, key, [message], &([message | &1]))
+
+    %{result | errors: errors}
   end
 end
